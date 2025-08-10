@@ -22,77 +22,64 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-<style>
-  /* Bungkus video background */
-  .video-background {
+    <style>
+  /* Style buat video fullscreen dan background */
+  #bg-video {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -2;
-  }
-
-  .video-background iframe {
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-
-  /* Overlay gelap di atas video */
-  .video-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain; /* biar gak nge-zoom crop */
+    background: black; /* sisi kosong video jadi hitam */
     z-index: -1;
   }
 
-  /* Pastikan konten ada di atas semua */
-  .page-content {
+  /* Overlay gelap supaya konten kelihatan */
+  #video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.6); /* dari var --dark, gelap transparan */
+    z-index: 0;
+  }
+
+  /* Konten utama tetap di atas */
+  #main-content {
     position: relative;
     z-index: 1;
-    color: white;
-    text-align: center;
-    margin-top: 40vh;
   }
 </style>
 
-<!-- Video Background -->
-<div class="video-background">
-  <iframe
-    id="yt-bg"
-    src="https://raw.githubusercontent.com/ziyosen/Lopee/main/VID_20250811_034921_989.mp4"
-    frameborder="0"
-    allow="autoplay; fullscreen"
-  ></iframe>
-</div>
+<video
+  id="bg-video"
+  autoplay
+  muted
+  playsinline
+  loop
+  preload="auto"
+  src="https://raw.githubusercontent.com/ziyosen/Lopee/main/VID_20250811_034921_989.mp4"
+></video>
 
-<!-- Overlay Gelap -->
-<div class="video-overlay"></div>
-<!-- Script untuk unmute otomatis -->
+<div id="video-overlay"></div>
+
 <script>
-  function enableSound() {
-    const iframe = document.getElementById('yt-bg');
-    iframe.contentWindow.postMessage(
-      '{"event":"command","func":"unMute","args":""}',
-      '*'
-    );
-    iframe.contentWindow.postMessage(
-      '{"event":"command","func":"setVolume","args":[100]}',
-      '*'
-    );
-    // Hapus listener supaya tidak berulang-ulang
-    document.removeEventListener('click', enableSound);
-    document.removeEventListener('touchstart', enableSound);
+  const video = document.getElementById('bg-video');
+  function unmuteVideo() {
+    if (video.muted) {
+      video.muted = false;
+      video.volume = 0.5; // volume setengah
+      // Hapus event listener setelah unmute supaya cuma jalan sekali
+      window.removeEventListener('click', unmuteVideo);
+      window.removeEventListener('scroll', unmuteVideo);
+      window.removeEventListener('mousemove', unmuteVideo);
+    }
   }
-
-  // Aktifkan suara saat user pertama kali klik atau tap
-  document.addEventListener('click', enableSound);
-  document.addEventListener('touchstart', enableSound);
+  window.addEventListener('click', unmuteVideo);
+  window.addEventListener('scroll', unmuteVideo);
+  window.addEventListener('mousemove', unmuteVideo);
 </script>
 
     <style>
