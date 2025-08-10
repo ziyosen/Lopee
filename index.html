@@ -23,66 +23,6 @@
       rel="stylesheet"
     />
     <style>
-  /* Style buat video fullscreen dan background */
-  #bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: contain; /* biar gak nge-zoom crop */
-    background: black; /* sisi kosong video jadi hitam */
-    z-index: -1;
-  }
-
-  /* Overlay gelap supaya konten kelihatan */
-  #video-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(15, 23, 42, 0.6); /* dari var --dark, gelap transparan */
-    z-index: 0;
-  }
-
-  /* Konten utama tetap di atas */
-  #main-content {
-    position: relative;
-    z-index: 1;
-  }
-</style>
-
-<video
-  id="bg-video"
-  autoplay
-  muted
-  playsinline
-  loop
-  preload="auto"
-  src="https://raw.githubusercontent.com/ziyosen/Lopee/main/VID_20250811_034921_989.mp4"
-></video>
-
-<div id="video-overlay"></div>
-
-<script>
-  const video = document.getElementById('bg-video');
-  function unmuteVideo() {
-    if (video.muted) {
-      video.muted = false;
-      video.volume = 0.5; // volume setengah
-      // Hapus event listener setelah unmute supaya cuma jalan sekali
-      window.removeEventListener('click', unmuteVideo);
-      window.removeEventListener('scroll', unmuteVideo);
-      window.removeEventListener('mousemove', unmuteVideo);
-    }
-  }
-  window.addEventListener('click', unmuteVideo);
-  window.addEventListener('scroll', unmuteVideo);
-  window.addEventListener('mousemove', unmuteVideo);
-</script>
-
-    <style>
       :root {
         --primary: #6366f1;
         --primary-dark: #4f46e5;
@@ -98,6 +38,23 @@
         font-family: "Inter", sans-serif;
       }
 
+      body
+      {
+              /* CSS untuk Video Background */
+      #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        background-size: cover;
+      }
+     #soundButton:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
       .card {
         background: rgba(30, 41, 59, 0.6);
         border: 1px solid rgba(99, 102, 241, 0.15);
@@ -410,6 +367,10 @@
 
     </style>
   </head>
+  <video autoplay loop id="myVideo">
+  <source src="https://raw.githubusercontent.com/ziyosen/Lopee/main/VID_20250811_034921_989.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
   <body class="font-sans">
     <div class="container mx-auto px-2 sm:px-4 py-4 sm:py-6 max-w-xl">
@@ -1394,7 +1355,7 @@
           ></div>
 
           <div class="text-center text-gray-500 text-xs">
-            <p>© 2025 Benxx project | Secure Connection Technology</p>
+            <p>Â© 2025 Benxx project | Secure Connection Technology</p>
             <p class="mt-1 flex items-center justify-center">
               Dibuat dengan
               <i class="fas fa-heart text-rose-500 mx-1"></i>
