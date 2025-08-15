@@ -5,7 +5,7 @@
     <meta property="og:description" content="Create your V2Ray account effortlessly and experience a secure, anonymous internet connection. Protect your privacy and enjoy unrestricted access to content from anywhere in the world." />
     <meta property="og:image" content="https://raw.githubusercontent.com/jaka2m/mau/refs/heads/kepo/geo.png" />
     <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/jaka2m/mau/refs/heads/kepo/geo.png"/>
-    <meta property="og:url" content="https://vpn.stupidworld.web.id/" />
+    <meta property="og:url" content="https://balckwolf.dpdns.org" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card Meta Tags -->
@@ -1238,7 +1238,7 @@ select.form-control {
   <div class="footer-powered" style="font-weight: bold;">POWERED BY SECURE TECHNOLOGY</div>
   <div class="footer-logo" style="font-weight: bold;">
     <a href="https://t.me/sampiiiiu" target="_blank" style="color: inherit; text-decoration: none;">
-      Benxx-PROJECT
+      GEO-PROJECT
     </a>
   </div>
 </footer>
@@ -1505,8 +1505,7 @@ closeBtn.style.margin = '10px auto 0';
     // Constants
     const DEFAULT_PROXY_BANK_URL = 'https://raw.githubusercontent.com/jaka2m/botak/refs/heads/main/cek/proxyList.txt';
     const PROXY_CHECK_API_URL = 'https://cors.checker-ip.web.id/?url=https://api.checker-ip.web.id/check';
-        const PATH = 'Benxx-Project'; // Hardcoded path
-    
+    const PATH_PREFIX = 'Benxx-Project'; // Hardcoded path prefix
     const MainDomains = [
         'balckwolf.dpdns.org',
         'ziyosen.dpdns.org'
@@ -1557,7 +1556,7 @@ async function checkProxyValidity(ip, port) {
         type: "none",
         scy: "zero",
         host: host,
-        path: `/${Benxx-Project}/${proxyHost}-${proxyPort}`,
+        path: `/${PATH_PREFIX}/${proxyHost}-${proxyPort}`,
         tls: tls ? "tls" : "none",
         sni: sni,
         fp: "randomized"
@@ -1638,7 +1637,7 @@ function generateClashVLESS(name, uuid, domain, host, sni, proxyHost, proxyPort,
   network: ws
   servername: ${sni}
   ws-opts:
-    path: /${Benxx-Project}/${proxyHost}-${proxyPort}
+    path: /${PATH_PREFIX}/${proxyHost}-${proxyPort}
     headers:
       Host: ${host}`;
 }
@@ -1655,7 +1654,7 @@ function generateClashTrojan(name, uuid, domain, host, sni, proxyHost, proxyPort
   network: ws
   sni: ${sni}
   ws-opts:
-    path: /${Benxx-Project}/${proxyHost}-${proxyPort}
+    path: /${PATH_PREFIX}/${proxyHost}-${proxyPort}
     headers:
       Host: ${host}`;
 }
@@ -1674,7 +1673,7 @@ function generateClashSS(name, uuid, domain, host, sni, proxyHost, proxyPort, tl
   plugin-opts:
     mode: websocket
     host: ${host}
-    path: /${Benxx-Project}/${proxyHost}-${proxyPort}
+    path: /${PATH_PREFIX}/${proxyHost}-${proxyPort}
     tls: ${tls}
     mux: false
     skip-cert-verify: true
@@ -1699,7 +1698,7 @@ function generateClashVMess(name, uuid, domain, host, sni, proxyHost, proxyPort,
   servername: ${sni}
   network: ws
   ws-opts:
-    path: /${Benxx-Project}/${proxyHost}-${proxyPort}
+    path: /${PATH_PREFIX}/${proxyHost}-${proxyPort}
     headers:
       Host: ${host}
   udp: true`;
@@ -1725,7 +1724,7 @@ function generateSingboxConfig(name, uuid, domain, host, sni, proxyHost, proxyPo
       },
       "transport": {
         "type": "ws",
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "headers": {
           "Host": "${host}"
         },
@@ -1749,7 +1748,7 @@ function generateSingboxConfig(name, uuid, domain, host, sni, proxyHost, proxyPo
       },
       "transport": {
         "type": "ws",
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "headers": {
           "Host": "${host}"
         },
@@ -1771,7 +1770,7 @@ function generateSingboxConfig(name, uuid, domain, host, sni, proxyHost, proxyPo
       },
       "transport": {
         "type": "ws",
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "headers": {
           "Host": "${host}"
         },
@@ -1787,7 +1786,7 @@ function generateSingboxConfig(name, uuid, domain, host, sni, proxyHost, proxyPo
       "method": "none",
       "password": "${uuid}",
       "plugin": "v2ray-plugin",
-      "plugin_opts": "mux=0;path=/${Benxx-Project}/${proxyHost}-${proxyPort};host=${host};tls=${tls ? '1' : '0'}"
+      "plugin_opts": "mux=0;path=/${PATH_PREFIX}/${proxyHost}-${proxyPort};host=${host};tls=${tls ? '1' : '0'}"
     }`;
     }
     
@@ -1814,7 +1813,7 @@ function generateSingboxxlConfig(name, uuid, domain, host, sni, proxyHost, proxy
       },
       "transport": {
         "type": "ws",
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "headers": {
           "Host": "${host}"
         }
@@ -1837,7 +1836,7 @@ function generateSingboxxlConfig(name, uuid, domain, host, sni, proxyHost, proxy
       },
       "transport": {
         "type": "ws",
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "headers": {
           "Host": "${host}"
         }
@@ -1858,7 +1857,7 @@ function generateSingboxxlConfig(name, uuid, domain, host, sni, proxyHost, proxy
       },
       "transport": {
         "type": "ws",
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "headers": {
           "Host": "${host}"
         }
@@ -1874,7 +1873,7 @@ function generateSingboxxlConfig(name, uuid, domain, host, sni, proxyHost, proxy
       "method": "none",
       "password": "${uuid}",
       "plugin": "v2ray-plugin",
-      "plugin_opts": "mux=0;path=/${Benxx-Project}/${proxyHost}-${proxyPort};host=${host};tls=${tls ? '1' : '0'}"
+      "plugin_opts": "mux=0;path=/${PATH_PREFIX}/${proxyHost}-${proxyPort};host=${host};tls=${tls ? '1' : '0'}"
     }`;
     }
     
@@ -1906,7 +1905,7 @@ function generateNekoboxConfig(name, uuid, domain, host, sni, proxyHost, proxyPo
           "Host": "${host}"
         },
         "max_early_data": 0,
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "type": "ws"
       },
       "type": "vless",
@@ -1930,7 +1929,7 @@ function generateNekoboxConfig(name, uuid, domain, host, sni, proxyHost, proxyPo
           "Host": "${host}"
         },
         "max_early_data": 0,
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "type": "ws"
       },
       "type": "trojan"
@@ -1953,7 +1952,7 @@ function generateNekoboxConfig(name, uuid, domain, host, sni, proxyHost, proxyPo
           "Host": "${host}"
         },
         "max_early_data": 0,
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "type": "ws"
       },
       "type": "vmess",
@@ -1970,7 +1969,7 @@ function generateNekoboxConfig(name, uuid, domain, host, sni, proxyHost, proxyPo
       "method": "none",
       "password": "${uuid}",
       "plugin": "v2ray-plugin",
-      "plugin_opts": "mux=0;path=/${Benxx-Project}/${proxyHost}-${proxyPort};host=${host};tls=${tls ? '1' : '0'}"
+      "plugin_opts": "mux=0;path=/${PATH_PREFIX}/${proxyHost}-${proxyPort};host=${host};tls=${tls ? '1' : '0'}"
     }`;
     }
     
@@ -1995,7 +1994,7 @@ function generatehusiConfig(name, uuid, domain, host, sni, proxyHost, proxyPort,
       },
       "transport": {
         "type": "ws",
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "headers": {
           "Host": "${host}"
         },
@@ -2019,7 +2018,7 @@ function generatehusiConfig(name, uuid, domain, host, sni, proxyHost, proxyPort,
       },
       "transport": {
         "type": "ws",
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "headers": {
           "Host": "${host}"
         },
@@ -2041,7 +2040,7 @@ function generatehusiConfig(name, uuid, domain, host, sni, proxyHost, proxyPort,
       },
       "transport": {
         "type": "ws",
-        "path": "/${Benxx-Project}/${proxyHost}-${proxyPort}",
+        "path": "/${PATH_PREFIX}/${proxyHost}-${proxyPort}",
         "headers": {
           "Host": "${host}"
         },
@@ -2057,7 +2056,7 @@ function generatehusiConfig(name, uuid, domain, host, sni, proxyHost, proxyPort,
       "method": "none",
       "password": "${uuid}",
       "plugin": "v2ray-plugin",
-      "plugin_opts": "mux=0;path=/${Benxx-Project}/${proxyHost}-${proxyPort};host=${host};tls=${tls ? '1' : '0'}"
+      "plugin_opts": "mux=0;path=/${PATH_PREFIX}/${proxyHost}-${proxyPort};host=${host};tls=${tls ? '1' : '0'}"
     }`;
     }
     
@@ -2277,7 +2276,7 @@ async function generateV2raySub(type, uuid, bugType, mainDomain, customBugs, tls
                 }
             }
             
-            return `#Benxx-Project-Project\nproxies:\n${allProxies.join('\n')}`;
+            return `#Benxx-Project\nproxies:\n${allProxies.join('\n')}`;
         }  
         // For Singbox format
         else if (formatType === 'singbox') {
@@ -2494,7 +2493,7 @@ ${allProxies.join(',\n')},
       "external_ui": "ui",
       "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/gh-pages.zip",
       "external_ui_download_detour": "Internet",
-      "secret": "Benxx",
+      "secret": "geo",
       "default_mode": "rule"
     }
   }
@@ -3235,7 +3234,7 @@ else if (formatType === 'husi') {
                     switch (type) {
                         case 'vless': 
                             const vlessLabel = formatLabel(countryCode, isp, 'VLESS', tls);
-                            config = `vless://${uuid}@${bugDomain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${Benxx-Project}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(vlessLabel)}`;
+                            config = `vless://${uuid}@${bugDomain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(vlessLabel)}`;
                             break;
                         
                         case 'vmess': 
@@ -3246,13 +3245,13 @@ else if (formatType === 'husi') {
                         
                         case 'trojan': 
                             const trojanLabel = formatLabel(countryCode, isp, 'TROJAN', tls);
-                            config = `trojan://${uuid}@${bugDomain}:${tls ? 443 : 80}?security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${Benxx-Project}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(trojanLabel)}`;
+                            config = `trojan://${uuid}@${bugDomain}:${tls ? 443 : 80}?security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(trojanLabel)}`;
                             break;
                         
                         case 'shadowsocks': 
                             const ssLabel = formatLabel(countryCode, isp, 'SS', tls);
                             const ssAuth = `none:${uuid}`;
-                            config = `ss://${safeBase64Encode(ssAuth)}@${bugDomain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${Benxx-Project}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(ssLabel)}`;
+                            config = `ss://${safeBase64Encode(ssAuth)}@${bugDomain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(ssLabel)}`;
                             break;
                         
                         case 'mix': 
@@ -3267,10 +3266,10 @@ else if (formatType === 'husi') {
                             const ssAuthMix = `none:${uuid}`;
 
                             config = [
-                                `vless://${uuid}@${bugDomain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${Benxx-Project}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(vlessLabelMix)}`,
+                                `vless://${uuid}@${bugDomain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(vlessLabelMix)}`,
                                 `vmess://${safeBase64Encode(vmessStringMix)}`,
-                                `trojan://${uuid}@${bugDomain}:${tls ? 443 : 80}?security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${Benxx-Project}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(trojanLabelMix)}`,
-                                `ss://${safeBase64Encode(ssAuthMix)}@${bugDomain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${Benxx-Project}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(ssLabelMix)}`
+                                `trojan://${uuid}@${bugDomain}:${tls ? 443 : 80}?security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(trojanLabelMix)}`,
+                                `ss://${safeBase64Encode(ssAuthMix)}@${bugDomain}:${tls ? 443 : 80}?encryption=none&security=${tls ? 'tls' : 'none'}&type=ws&host=${bugHost}&path=%2F${PATH_PREFIX}%2F${proxyHost}-${proxyPort}&sni=${bugSni}#${encodeURIComponent(ssLabelMix)}`
                             ].join('\n');
                             break;
                     }
